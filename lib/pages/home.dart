@@ -102,7 +102,7 @@ class ColoredCubeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Object3D(
-      size: Size(30, 30),
+      size: Size(120, 120),
       path: 'assets/cube2/cube.obj',
       asset: true,
       zoom: rating,
@@ -121,7 +121,7 @@ class WiredCubeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Object3D(
-      size: Size(30, 30),
+      size: Size(120, 120),
       path: 'assets/wired_cube/wired_cube.obj',
       asset: true,
       zoom: rating,

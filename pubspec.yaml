@@ -49,8 +49,8 @@ flutter:
   assets:
     - assets/wired_cube/wired_cube.obj
     - assets/wired_cube/wired_cube.mtl
-    - assets/cube2/cube.obj
-    - assets/cube2/materials.mtl
+    - assets/new_cube/new_cube.obj
+    - assets/new_cube/new_cube.mtl
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

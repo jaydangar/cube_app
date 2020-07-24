@@ -103,7 +103,7 @@ class ColoredCubeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Object3D(
       size: Size(120, 120),
-      path: 'assets/cube2/cube.obj',
+      path: 'assets/new_cube/new_cube.obj',
       asset: true,
       zoom: rating,
     );

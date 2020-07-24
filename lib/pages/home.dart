@@ -23,21 +23,26 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
           child: Column(children: [
             Expanded(
-                flex: 9,
-                child: BlocBuilder<SwitchBloc, SwitchState>(
-                  builder: (BuildContext context, state) {
-                    if (state is SwitchChanged) {
-                      if (state.switchState) {
-                        return CenterWidget(
-                            modelSource: 'assets/cube/cube.obj',
-                            rating: rating);
-                      }
+              flex: 9,
+              child: BlocBuilder<SwitchBloc, SwitchState>(
+                builder: (BuildContext context, state) {
+                  if (state is SwitchChanged) {
+                    if (state.switchState) {
+                      return Center(
+                        child: ColoredCubeWidget(rating: rating),
+                      );
+                    } else {
+                      return Center(
+                        child: WiredCubeWidget(rating: rating),
+                      );
                     }
-                    return CenterWidget(
-                        modelSource: 'assets/wired_cube/wired_cube.obj',
-                        rating: rating);
-                  },
-                )),
+                  }
+                  return Center(
+                    child: WiredCubeWidget(rating: rating),
+                  );
+                },
+              ),
+            ),
             Divider(),
             Expanded(
               flex: 3,
@@ -74,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                       rating = value;
                     }),
                     min: 30,
-                    max: 90,
+                    max: 180,
                   ),
                 ],
               ),
@@ -86,25 +91,40 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class CenterWidget extends StatelessWidget {
-  const CenterWidget({
+class ColoredCubeWidget extends StatelessWidget {
+  const ColoredCubeWidget({
     Key key,
-    @required this.modelSource,
     @required this.rating,
   }) : super(key: key);
 
-  final String modelSource;
   final double rating;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Object3D(
-        size: Size(30, 30),
-        path: modelSource,
-        asset: true,
-        zoom: rating,
-      ),
+    return Object3D(
+      size: Size(30, 30),
+      path: 'assets/cube2/cube.obj',
+      asset: true,
+      zoom: rating,
+    );
+  }
+}
+
+class WiredCubeWidget extends StatelessWidget {
+  const WiredCubeWidget({
+    Key key,
+    @required this.rating,
+  }) : super(key: key);
+
+  final double rating;
+
+  @override
+  Widget build(BuildContext context) {
+    return Object3D(
+      size: Size(30, 30),
+      path: 'assets/wired_cube/wired_cube.obj',
+      asset: true,
+      zoom: rating,
     );
   }
 }
